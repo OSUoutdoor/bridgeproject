@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Bridge Project</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/L.Control.Sidebar.css" />
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Cinzel:wght@500&family=Commissioner:wght@300&family=Josefin+Sans:wght@500&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/L.Control.Sidebar.js"></script>
+  <script src="js/d3.js"></script>
+  <script src="js/c3.min.js"></script>
+  <script src="js/chroma.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+  <script src="js/leaflet.featuregroup.subgroup.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <script src="js/jqcloud.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light" id="mainNav">
+    <p><a href="https://www.wildernessstewards.org/" target="_blank">
+        <img src="assets/saws_logo4cH.webp" width="50%"></a>
+      <!-- <a href="https://orei.oregonstate.edu/" target="_blank">
+        <img src="img/osu.png" width="15%"></a> -->
+</p>
+    <div class="container ">
+      <a class="navbar-brand" href="index.html"></a>
+      <button class="navbar-toggler navbar-toggler-Left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#project">Project</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#mapdata">Map</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#dataanalysis">Data</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="project" class="project-section">
+      <div class="center">
+        <a href="https://www.wildernessstewards.org/thebridgeproject" target="_blank">
+                <img src="assets/bridgepro.jpeg" width="15%"></a>
+        <h1> The Bridge Project</h1>
+        <br>
+        <p>Reason for page</p>
+         <br>
+      </div>
+      <div class="container-fluid">
+
+    </div>
+      </section>
+  <section id="mapdata" class="mapdata-section">
+
+      <div class="center">
+        <br>
+        <h1> Representation by State </h1>
+      </div>
+      <br>
+      <div id="map"></div>
+    </section>
+
+  <section id="dataanalysis" class="dataanalysis-section">
+<center>
+<h3>Survey Responses:</h3>
+</center>
+          <div id="matchchart"></div>
+
+
+          <center>
+            <br><br>
+          <h2>Demographics</h2>
+          </center>
+
+          <div class="row">
+
+            <div class="col-md">
+              <h4>How do you identify? </h4>
+    <div id="genderchart"></div>
+  </div>
+  <div class="col-md">
+          <h4>How would you describe yourself? </h4>
+    <div id="ethnicchart"></div>
+  </div>
+</div>
+<br><br>
+<div class="row">
+
+  <div class="col-md ">
+  <h1 class="ex2">53%</h1s>
+
+
+</div>
+<div class="col-md">
+<h4>of respondents are likely to participate in the next event. </h4>
+
+</div>
+</div>
+
+
+
+<div class="row">
+
+  <div class="col-md ">
+
+    <h1 class="ex2">69%</h1>
+
+</div>
+<div class="col-md">
+<h4>of respondents would recommend The Bridge Project to a friend/colleague. </h4>
+
+</div>
+</div>
+
+
+<center>
+<h2>The top 5 reasons attendees participated in The Bridge Project:</h2>
+</center>
+<ol>
+  <li>Seeking job and interview opportunities for BIPOC community & job seekers looking for their first or next career opportunity in sustainability and conservation </li>
+  <li>Interested in creating equitable & inclusive hiring process; diversifying the workplace; and interviewing job candidates</li>
+  <li>Networking + community building/engagement </li>
+  <li>Attending panels & education sessions </li>
+  <li>Recommended to them & interested in learning more!</li>
+</ol>
+
+<br><br>
+<center>
+<h2>In a word, the Bridge Project was:</h2>
+</center>
+
+<div id="cloud"></div>
+
+<br>
+<br>
+<br>
+<center>
+<h1>ALL-DAY VIRTUAL EVENT </h1>
+</center>
+
+
+<br>
+<br>
+<br>
+
+
+<h1>Survey participants reported that the following aspects of the virtual event were most impactful:</h1>
+
+
+<div class="row">
+
+  <div class="col-md ">
+    <center>
+    <img src="assets/Finney.jpeg" width="50%">
+  </center>
+</div>
+<div class="col-md">
+  <ul>
+  <li>	Keynote by Dr. Carolyn Finney (Pitured to the Left)  </li>
+  <li>	Speakers including Jose Gonzalez, Angelou Ezeilo, Deb Haaland </li>
+  <li>	Breakout sessions and particularly the emerging professional panel  </li>
+  </ul>
+
+</div>
+</div>
+
+
+    </section>
+
+
+  <div class="scroll-to-top d-lg-none position-fixed">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+  </div>
+
+  <script>
+
+  function wordFrequency(txt, freq) {
+
+// a regular expression to define the symbols to seperate the words
+    var wordArray = txt.split(/[ .?!,*'"”“]/);
+    var newArray = [], filteredArray = [], wordObj;
+	// calculate the frequency of each unique terms from the text.
+    wordArray.forEach(function (word) {
+        wordObj = newArray.filter(function (w){
+            return w.text == word.toLowerCase();
+        });
+        if (wordObj.length) {
+            wordObj[0].weight += 1;
+        } else {
+            newArray.push({text: word, weight: 1});
+        }
+    });
+
+
+    	var words = [];
+
+	//disinclude the word larger than the lowerst frequency as well as not in the commonly used terms.
+    newArray.filter(function(word){
+        if (!words.includes(word.text) && word.weight > freq) {
+            filteredArray.push(word);
+        }
+    });
+
+    return filteredArray;
+}
+colorscheme = chroma.scale('OrRd').colors(10).reverse(); //colorscheme = chroma.scale('OrRd').colors(5);
+
+d3.csv('assets/cloud.csv').then(function(data) {
+    var texts = "";
+    for(var i=0;i< data.length; i++){
+
+        texts += data[i].Q3 ;
+    }
+
+    for (var j = 0; j < colorscheme.length; j++) {
+      $("#area").append("<i style='background: " + colorscheme[j] + " ; opacity:0.9'></i>")};
+
+
+
+  var frequencyList = wordFrequency(texts, 1);
+
+    $("#cloud").jQCloud(frequencyList, {
+       colors: colorscheme,
+       autoResize: true,
+       delay: 5,
+       shape: 'rectangular',
+       fontSize: {
+           from: 0.06,
+           to: 0.01
+       }
+    });
+
+    console.log(texts)
+});
+
+  Promise.all([
+    d3.csv('assets/Survey.csv', d3.autoType),
+    d3.csv('assets/cloud.csv', d3.autoType),
+    d3.csv('assets/wordcloud.csv', d3.autoType),
+  ]).then(function(datasets) {
+//     colors = chroma.scale('YlGnBu').colors(3); //colors = chroma.scale('RdPu').colors(5);
+//
+//     var matrix = d3.nest()
+//   .key(function(d) {return d.Q3;  })
+//   .rollup(function(ids) {
+//       return ids.length;
+//   })
+//   .entries(datasets[0]);
+//   var df=datasets[2]
+//
+//   colorscheme = chroma.scale('OrRd').colors(10).reverse(); //colorscheme = chroma.scale('OrRd').colors(5);
+//
+//
+//   for (var j = 0; j < colorscheme.length; j++) {
+//     $("#area").append("<i style='background: " + colorscheme[j] + " ; opacity:0.9'></i>")};
+//
+//
+//
+//     $("#cloud").jQCloud(df, {
+//        colors: colorscheme,
+//        autoResize: true,
+//        delay: 5,
+//        shape: 'rectangular',
+//        fontSize: {
+//            from: 0.06,
+//            to: 0.01
+//        }
+//     });
+//
+// console.log(df)
+
+
+
+
+  var color= chroma.scale('Set2').mode('lch').colors(9);
+  var map = L.map("map", {
+  minZoom: 4,
+  maxZoom: 8,
+  scrollWheelZoom: false
+
+}).setView([38, -98.], 4);
+
+
+L.tileLayer('https://api.mapbox.com/styles/v1/loweas/ck6rbqwaj20fi1inwqn4c4w99/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG93ZWFzIiwiYSI6ImNqczlhMzJqMjE1dDM0NG12dHBxam1lZjIifQ.Ox8goYypCr_cJCoDPgHTsQ', {
+  attribution: 'Made By <a href="https://github.com/loweas">loweas</a>',
+}).addTo(map);
+colors = chroma.scale('YlGnBu').colors(3); //colors = chroma.scale('RdPu').colors(5);
+
+function setColor(density) {
+    var id = 0;
+    if (density == "Arizona" || density == "Oregon"
+  || density == "Hawaii"|| density == "Illinois"|| density == "Maryland"|| density == "Minnesota"|| density == "Missouri"
+|| density == "Missouri"|| density == "Montana"|| density == "New Jersey"|| density == "New York"
+|| density == "North Carolina"|| density == "Pennsylvania"|| density == "Tennessee") { id = 2; }
+    else if (density =="California"|| density == "Colorado"|| density == "Georgia"|| density == "Virgina") { id = 1; }
+    else  { id = 0; }
+    return colors[id];
+}    // 7. Set style function that sets fill color.md property equal to cell tower density
+    function style(feature) {
+        return {
+            fillColor: setColor(feature.properties.name),
+            fillOpacity: 0.6,
+            weight: 2,
+            opacity: .001,
+            color: '#b4b4b4',
+            dashArray: '4'
+        };
+    }
+    // 8. Add county polygons
+// create counties variable, and assign null to it.
+var states = null;
+states = L.geoJson.ajax("assets/us-states.geojson", {
+    style: style
+}).addTo(map);
+
+
+// 9. Create Leaflet Control Object for Legend
+var legend = L.control({position: 'topright'});
+
+
+// 10. Function that runs when legend is added to map
+legend.onAdd = function () {
+  // Create Div Element and Populate it with HTML
+          var div = L.DomUtil.create('div', 'legend');
+          div.innerHTML += '<b>Repersentation by State</b><br />';
+
+          div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p>Attended</p>';
+          div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p>Top 5</p>';
+          div.innerHTML += '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p>No Attendence</p>';
+// Return the Legend div containing the HTML content
+return div;
+};
+
+// 11. Add a legend to map
+legend.addTo(map);
+
+
+
+
+
+
+
+  var matchchart = c3.generate({
+    data: {
+      columns: [
+        ["Candidates", 27],
+        ["Hiring partners", 19],
+        ["Sponsors",6],
+        ["Coach",4],
+        ["General attendee",3],
+        ["Advisory council",1],
+      ],
+      type: 'pie',
+    },
+    axis: {
+      x: {
+        type: 'category'
+      }
+    },
+    color: {
+      pattern: [color[0], color[2], color[3], color[4], 'grey']
+    },
+    bindto: "#matchchart"
+  });
+  var genderchart = c3.generate({
+    data: {
+      columns: [
+        ["Female", 8],
+        ["Male", 2],
+      ],
+      type: 'pie',
+    },
+    axis: {
+      x: {
+        type: 'category'
+      }
+    },
+    color: {
+      pattern: [color[0], color[2], color[3], color[4], 'grey']
+    },
+    bindto: "#genderchart"
+  });
+  var ethnicchart = c3.generate({
+    data: {
+      columns: [
+        ["White", 45],
+        ["Black/African American", 20],
+        ["American Indian or Alaska Native", 2],
+        ["Asian", 12],
+        ["Spanish, Hispanic, Latino", 20],
+        ["Other", 2],
+      ],
+      type: 'pie',
+    },
+    axis: {
+      x: {
+        type: 'category'
+      }
+    },
+    color: {
+      pattern: [color[0], color[2], color[3], color[4], 'grey']
+    },
+    bindto: "#ethnicchart"
+  });
+
+    });
+
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141661518-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141661518-4');
+  </script>
+</body>
+
+</html>
