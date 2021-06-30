@@ -488,7 +488,7 @@ Project</h5><br></div>
   maxZoom: 8,
   scrollWheelZoom: false
 
-}).setView([35, -115.], 4);
+}).setView([33, -115.], 4);
 
 
   L.tileLayer('https://api.mapbox.com/styles/v1/loweas/ck6rbqwaj20fi1inwqn4c4w99/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG93ZWFzIiwiYSI6ImNqczlhMzJqMjE1dDM0NG12dHBxam1lZjIifQ.Ox8goYypCr_cJCoDPgHTsQ', {
@@ -504,7 +504,7 @@ Project</h5><br></div>
   }).addTo(map);
 
 
-  colors = chroma.scale('OrRd').colors(3); //colors = chroma.scale('RdPu').colors(5);
+  colors = chroma.scale('YlGnBu').colors(3); //colors = chroma.scale('RdPu').colors(5);
 
   function setColor(density) {
     var id = 0;
@@ -701,8 +701,8 @@ Project</h5><br></div>
         ws.el.addEventListener('ws:slide-change', function() {
                 crtDiv = $(".current div");
 
-          ethnicchart.resize();
-          genderchart.resize();
+          // ethnicchart.resize();
+          // genderchart.resize();
           matchchart.resize();
 
           if (crtDiv.attr("id") === "mycloud") {
