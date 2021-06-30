@@ -1,0 +1,189 @@
+html, body { width: 100%; height: 100%; margin: 0; background: #fff; }
+
+#mymap, #mymap2, #mymap3, #mysatellitemap, #mysatellitemap2, #mymap4  {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgb(213,218,220);
+}
+
+
+
+
+
+.textLabelclass {
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 0.1em black, 0 0 0.1em black,
+    0 0 0.1em black, 0 0 0.1em black, 0 0 0.1em;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.content-right{
+  text-align: right;
+}
+
+
+
+
+/* accessories */
+
+#area {
+  line-height: 12px;
+  width: 280px;
+  position: absolute;
+  z-index: 1000;
+  left: 10px;
+  top: 0px;
+  color: white;
+font-family: 'Open Sans', sans-serif;
+  padding: 6px 8px;
+  background: #000000;
+  background: rgba(38, 38, 38, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+#area i {
+  width: 25px;
+  height: 16px;
+  float: left;
+  /* margin-right: 8px; */
+  opacity: 0.7;
+}
+
+#area p {
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0;
+}
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #01B3CB;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: pink;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+#info {
+  position: fixed;
+  z-index: 1000;
+  top: 1px;
+  right: 1px;
+  width: 300px;
+  color: white;
+  padding: 6px 8px;
+  background: transparent;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#chart {
+  position: fixed;
+font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 400px;
+}
+
+
+
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 0 5px;
+
+  font-size: 18px;
+}
+
+
+
+#chartword {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  stroke-width: 3px;
+
+}
+
+
+
+#cloud {
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  background: #EAEDED;
+}
+
+
+.leaflet-control-layers {
+  color: #333333 !important;
+  padding: 2px 2px;
+  width: 200px!important;
+  height: 350px;
+  border: none !important;
+  background: rgba(225, 225, 225, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 5px !important;
+
+}
+
+
+label {
+  line-height: 16px;
+  margin-bottom: 0px;
+
+}
+
+.minimap{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+q {
+  color: #01B3CB;
+  background-color: transparent;
+font-family: 'Open Sans', sans-serif;
+}
+q:link{
+  color: white;
+  background-color: transparent;
+font-family: 'Open Sans', sans-serif;
+}
+
+.slideshow-container {
+  position: fixed;
+  bottom:60px;
+  left:40px;
+  background-color: #5c8e53;
+  border-radius: 2px;
+  font-size: 30px;
+}
