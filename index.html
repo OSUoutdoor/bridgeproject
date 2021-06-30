@@ -661,35 +661,39 @@ Project</h5><br></div>
     return filteredArray;
 
   }
+  
+  d3.csv('assets/wordcloud.csv').then(function(data) {
+    var texts = "";
+
+    for(var i=0;i< data.length; i++){
+
+      texts += " " + data[i].x ;
+    }
+
+    var frequencyList = null;
+    frequencyList = wordFrequency(texts, 0);
+    console.log(frequencyList)
+    $("#cloud").jQCloud(frequencyList, {
+      colors: colorscheme,
+      autoResize: true,
+      delay: 1,
+      shape: 'rectangular',
+      fontSize: {
+        from: 0.1,
+        to: 0.02
+      }
+    });
+    cloud.resize();
+
+
+
+
+  });
+
 
 
     colorscheme = chroma.scale('Dark2').colors(10).reverse();
-    d3.csv('assets/wordcloud.csv').then(function(data) {
-      var texts = "";
 
-      for(var i=0;i< data.length; i++){
-
-        texts += " " + data[i].x ;
-      }
-
-      var frequencyList = null;
-      frequencyList = wordFrequency(texts, 0);
-      console.log(frequencyList)
-      $("#cloud").jQCloud(frequencyList, {
-        colors: colorscheme,
-        autoResize: true,
-        delay: 1,
-        shape: 'rectangular',
-        fontSize: {
-          from: 0.1,
-          to: 0.02
-        }
-      });
-
-
-
-
-    });
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -723,6 +727,7 @@ Project</h5><br></div>
                       to: 0.02
                     }
                   });
+                  cloud.resize();
 
 
 
