@@ -1,140 +1,149 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>The Bridge Project</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/L.Control.Sidebar.css" />
-  <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <meta name="description" content="The Bridge Project">
+  <link rel="stylesheet" type='text/css' media='all' href="css/webslides.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <!-- <link rel="stylesheet" type="text/css" media="all" href="css/style_owen.css"> -->
+  <!--owens css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Cinzel:wght@500&family=Commissioner:wght@300&family=Josefin+Sans:wght@500&family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.14/c3.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://dc-js.github.io/dc.js/css/dc.min.css">
+  <link rel="stylesheet" href="css/jqcloud.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Julius+Sans+One|Montserrat|Open+Sans&display=swap" rel="stylesheet">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+  <link rel="shortcut icon" href="img/uganda.ico" type="image/x-icon">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+.leaflet-popup-content-wrapper, .leaflet-popup.tip {
+  width: 100%
+}
 
-  <!-- JavaScript -->
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="js/L.Control.Sidebar.js"></script>
-  <script src="js/d3.js"></script>
-  <script src="js/c3.min.js"></script>
-  <script src="js/chroma.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-  <script src="js/leaflet.featuregroup.subgroup.js"></script>
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
+</style>
+  <!-- Javascript Library -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/webslides.min.js"></script>
   <script src="js/jqcloud.js"></script>
+  <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.14/c3.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <script type="text/javascript" src="js/chroma.js"></script>
+  <!-- <script src="http://maximeh.github.io/leaflet.bouncemarker/bouncemarker.js"></script> -->
+  <script src="https://unpkg.com/d3@5/dist/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.14/c3.min.js"></script>
+  <script src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
+  <script src="https://dc-js.github.io/dc.js/js/dc.js"></script>
+
+  <!--for the slide on satellite-->
+  <script src="js/BubbleLayer.js"></script>
+
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light" id="mainNav">
-    <p><a href="https://www.wildernessstewards.org/" target="_blank">
-        <img src="assets/saws_logo4cH.webp" width="50%"></a>
-      <!-- <a href="https://orei.oregonstate.edu/" target="_blank">
-        <img src="img/osu.png" width="15%"></a> -->
-</p>
-    <div class="container ">
-      <a class="navbar-brand" href="index.html"></a>
-      <button class="navbar-toggler navbar-toggler-Left" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#project">Project</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#mapdata">Map</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#dataanalysis">Data</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html#about">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <div class="container">
-    <section id="project" class="project-section">
-      <div class="center">
-        <a href="https://www.wildernessstewards.org/thebridgeproject" target="_blank">
-                <img src="assets/bridgepro.jpeg" width="15%"></a>
-        <h1> The Bridge Project</h1>
-        <br>
-        <p>Reason for page</p>
-         <br>
-      </div>
-      <div class="container-fluid">
+    <article id="webslides" class="vertical">
 
-    </div>
+
+
+          <section>
+        <!--.wrap = container (width: 90%) -->
+          <div class="wrap align bg-primary ">
+            <center>
+          <a href="https://www.wildernessstewards.org/thebridgeproject" target="_blank">
+                  <img src="assets/bridgepro.jpeg" width="15%"></a>
+
+          <h1> The Bridge Project</h1>
+                 </center>
+
+         <div class="alignright">
+             <br>  <br>
+          <br>
+          The conservation field can be hard to break into. Employers across the sector, from federal land management agencies to nonprofit conservation groups, environmental organizations, natural resource management companies, and the outdoor recreation industry struggle to connect with a talented, diverse pool of potential employees. In partnership with private and public sector leaders, the Bridge Project was developed to create inclusive and innovative hiring pathways that embolden and diversify conservation employment practices.
+
+
+  <br>  <br>  <br>  <br>
+
+On May 11 and 12, 2021, The Bridge Project held a virtual two-day peer learning and hiring event to connect qualified potential employees and employers in the conservation field. This post-event evaluation includes a summary of findings and feedback from first year participants, employers, and candidates that will inform and enhance future learning and hiring events.
+
+           <br>
+</div>
+        </div>
+        <div class="container-fluid">
+      </div>
+        <!-- .end .wrap -->
       </section>
-  <section id="mapdata" class="mapdata-section">
+      <section id="section-2" class="slide-top">
 
-      <div class="center">
-        <br>
-        <h1> Representation by State </h1>
-      </div>
-      <br>
-      <div id="map"></div>
-    </section>
+  <!--.wrap = container (width: 90%) -->
+  <div class="aligncenter">
+    <h2><strong>Representation by State</strong></h2> <br>
 
-  <section id="dataanalysis" class="dataanalysis-section">
-<center>
-<h3>Survey Responses:</h3>
-</center>
-          <div id="matchchart"></div>
-
-
-          <center>
-            <br><br>
-          <h2>Demographics</h2>
-          </center>
-
-          <div class="row">
-
-            <div class="col-md">
-              <h4>How do you identify? </h4>
-    <div id="genderchart"></div>
+    <!-- .end .bg-white shadow -->
   </div>
-  <div class="col-md">
-          <h4>How would you describe yourself? </h4>
+    <div id="map"></div>
+  <!-- .end .wrap -->
+</section>
+<section>
+  <!--.wrap = container (width: 90%) -->
+<div class="wrap">
+  <div class="grid vertical-align">
+    <div class="column bg-primary ">
+      <center>
+      <h4><strong>Survey Responses:</strong></h4>
+    </ceneter>
+      <div id="matchchart"></div>
+    </div>
+    <!-- .end .column -->
+    <div class="column"><center>
+      <h6>How do you identify? </h6>
+      <div id="genderchart"></div>
+      <h6>How would you describe yourself? </h6>
     <div id="ethnicchart"></div>
+  </center>
+    </div>
+    <!-- .end .column -->
   </div>
+  <!-- .end .grid -->
 </div>
-<br><br>
-<div class="row">
+</section>
+    <!-- 2. Start of the Conflict-->
+    <section>
+      <!--.wrap = container (width: 90%) -->
+      <div class="wrap">
+        <div class="grid vertical-align">
+          <div class="column">
+            <center>
+            <h1 class="ex2">53%</h1s>
+            </center>
+      <h5>of respondents are likely to participate in the next event. </h5>
+      <br><br>
+      <center>
+      <h1 class="ex2">69%</h1>
+    </center>
+      <h5>of respondents would recommend The Bridge Project to a friend/colleague. </h5>
 
-  <div class="col-md ">
-  <h1 class="ex2">53%</h1s>
+          </div>
+          <!-- .end .column -->
+          <div class="column bg-primary " >
 
+<h5>The top 5 reasons attendees participated in The Bridge Project:</h5>
 
-</div>
-<div class="col-md">
-<h4>of respondents are likely to participate in the next event. </h4>
-
-</div>
-</div>
-
-
-
-<div class="row">
-
-  <div class="col-md ">
-
-    <h1 class="ex2">69%</h1>
-
-</div>
-<div class="col-md">
-<h4>of respondents would recommend The Bridge Project to a friend/colleague. </h4>
-
-</div>
-</div>
-
-
-<center>
-<h2>The top 5 reasons attendees participated in The Bridge Project:</h2>
-</center>
 <ol>
   <li>Seeking job and interview opportunities for BIPOC community & job seekers looking for their first or next career opportunity in sustainability and conservation </li>
   <li>Interested in creating equitable & inclusive hiring process; diversifying the workplace; and interviewing job candidates</li>
@@ -142,179 +151,371 @@
   <li>Attending panels & education sessions </li>
   <li>Recommended to them & interested in learning more!</li>
 </ol>
+          </div>
+          <!-- .end .column -->
+        </div>
+        <!-- .end .grid -->
+      </div>
+</section>
 
-<br><br>
-<center>
-<h2>In a word, the Bridge Project was:</h2>
+<section class="fullscreen">
+
+  <div id="mycloud">
+    <div class="card-50 bg-primary">
+      <div class="flex-content">
+        <h1>In a word, the Bridge Project was:</h1>
+
+      </div>
+<figure id="cloud"></figure>
+
+
+
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+  <div class="grid vertical-align">
+    <div class="column">
+      <center>
+  <h4>ALL-DAY VIRTUAL EVENT </h4>
+  <br>
 </center>
 
-<div id="cloud"></div>
 
-<br>
-<br>
-<br>
-<center>
-<h1>ALL-DAY VIRTUAL EVENT </h1>
-</center>
+  For the all-day virtual event (58 responses):<br><br>
 
-
-<br>
-<br>
-<br>
+	* 95% were satisfied with the speakers (79% were extremely satisfied) <br><br>
+		* 91% were satisfied with the opening & welcome session <br><br>
+	* 79% were satisfied with the event/staff communications <br><br>
+	* 76% were satisfied with event registration and the online platform <br><br>
+* 72% were satisfied with the closing session<br><br>
+ * 59% were satisfied with the breakout sessions<br><br>
+	* 42% were satisfied with the networking sessions <br><br>
 
 
-<h1>Survey participants reported that the following aspects of the virtual event were most impactful:</h1>
+</div>
 
-
-<div class="row">
-
-  <div class="col-md ">
-    <center>
-    <img src="assets/Finney.jpeg" width="50%">
+    <div class="column bg-primary">
+      <center>
+            <img src="assets/Finney.jpeg" width="25%">  <img src="assets/jose-pic-2-by-michael.jpeg" width="29%">
   </center>
+<br><br>
+      	 * Keynote by Dr. Carolyn Finney (Pictured Above Left)  <br><br>
+     *	Speakers including Jose Gonzalez (Pictured Above Right), Angelou Ezeilo, Deb Haaland <br><br>
+      *  	Breakout sessions and particularly the emerging professional panel<br><br>
+
+
+    </div>
+      </div>
 </div>
-<div class="col-md">
-  <ul>
-  <li>	Keynote by Dr. Carolyn Finney (Pitured to the Left)  </li>
-  <li>	Speakers including Jose Gonzalez, Angelou Ezeilo, Deb Haaland </li>
-  <li>	Breakout sessions and particularly the emerging professional panel  </li>
-  </ul>
-
-</div>
-</div>
+</section>
 
 
-    </section>
+<section class="fullscreen">
+
+    <div class="grid vertical-align card-50">
+      <div class="column bg-primary">
+        <h4>Breakout sessions:</h4>
+       -	Workforce Planning – Creating Onramps <br><br>
+        &ensp; &ensp; &ensp; 	4 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	50% satisfied<br><br>
+        -	Cultivating a Diverse Candidate Pool<br><br>
+        &ensp; &ensp; &ensp; 	13 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	85% satisfied<br><br>
+        -	Equitable Candidate Review & Interviewing<br><br>
+        &ensp; &ensp; &ensp; 	6 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	50% satisfied<br><br>
+        -	Preparing for a More Diverse Workforce & Investing in Your Staff<br><br>
+        &ensp; &ensp; &ensp; 	11 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	100% satisfied<br><br>
+        -	Supporting Equitable Hiring in the Federal Workforce<br><br>
+         &ensp; &ensp; &ensp; 	4 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	75% satisfied<br><br>
+        -	Candidate workshop with Angelou Ezeilo & Taishya Adams<br><br>
+        &ensp; &ensp; &ensp; 	17 responses &ensp; &ensp; &ensp;--
+        &ensp; &ensp; &ensp; 	94% satisfied<br><br>
+        -	15 survey respondents did not attend breakout sessions
+          </div>
+      <!-- .end .column -->
+
+        <div class="column">
+          <h4>Top 2 training sessions:</h4>
+
+          <ol>
+            <li>Training with Dr. Carolyn Finney</li>
+            <li>Equitable Hiring Training with José González</li>
 
 
-  <div class="scroll-to-top d-lg-none position-fixed">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+          </ol>
+           <br><br>
+          <h4>Top 3 breakout sessions:</h4>
+
+          <ol>
+            <li>Preparing for a More Diverse Workforce & Investing in Your Staff </li>
+            <li>Candidate workshop with Angelou Ezeilo & Taishya Adams</li>
+            <li>Cultivating a Diverse Candidate Pool </li>
+
+          </ol>
+
+
+        </div>
+      <!-- .end .column -->
+    </div>
+    <!-- .end .grid -->
   </div>
 
+</section>
+
+<section >
+  <h4>INTERVIEWS</h4>
+      <div class="grid vertical-align">
+        <div class="column">
+          <h4>The interview process for hiring partners:</h4>
+
+          -	93% were satisfied with candidate preparedness<br><br>
+  -	67% were satisfied with the relevance of candidate experience <br><br>
+  -	67% were satisfied with the interview materials and resources provided <br><br>
+  -	80% were satisfied with their overall candidate interviewing experience <br><br>
+
+            </div>
+        <!-- .end .column -->
+
+          <div class="column bg-primary">
+            <h4>The interview process for candidates:</h4>
+
+  -	94% were satisfied with employer match<br><br>
+  -	94% were satisfied with job match<br><br>
+  -	94% were satisfied with the interview questions asked<br><br>
+  -	94% were satisfied with the interview duration <br><br>
+  -	94% were satisfied with their overall candidate experience <br><br>
+
+          </div>
+        <!-- .end .column -->
+      </div>
+      <!-- .end .grid -->
+    </div>
+
+
+
+</section>
+<section class="fullscreen bg-primary " >
+  <div class="wrap">
+    <br>
+    <h3>Key Takeaways from breakout sessions</h3> </div>
+    <div class="grid vertical-align">
+      <div class="column">
+
+          <div class="text-quote">
+<h5>
+Dr. Carolyn Phinney was SO powerful to listen to. What an inspiration. So much of what
+she said could be taken and applied in so many ways to our organization.
+</h5><br>
+</div>
+  <div class="text-quote">
+<h4>
+I felt inspired and empowered. Major takeaway was to know my worth!<br></h4></div>
+
+</div>
+    <div class="column">
+
+  <div class="text-quote">
+<h4>Bias is sticky: we have to commit to constant practice and have strong processes to
+counter it. </h4><br></div>
+
+
+  <div class="text-quote">
+<h5>
+  Jose's sessions were great! So informative. I had only been able to watch the recording
+  but it also seemed there was a ton of great discussions!
+</h5></div>
+<div class="text-quote">
+<h3>Navigating LinkedIn</h3><br>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+</section>
+<section>
+  <!--.wrap = container (width: 90%) -->
+  <div class="wrap">
+    <div class="grid vertical-align">
+      <div class="column bg-primary">
+        <center>
+        <h1 class="ex2">60% </h1s>
+        </center>
+  <h5>of respondents – including candidates and hiring partners - thought The Bridge Project experience was better than other interview or hiring experiences they’ve had in the past. </h5>
+  <br><br>
+  <center>
+  <h1 class="ex2">67% </h1>
+</center>
+  <h5> of hiring partners reported feeling better equipped to advance equitable hiring practices within their organization.</h5>
+
+      </div>
+      <!-- .end .column -->
+      <div class="column " >
+
+<h5>The top 5 reasons attendees participated in The Bridge Project:</h5>
+
+<ol>
+<li>Seeking job and interview opportunities for BIPOC community & job seekers looking for their first or next career opportunity in sustainability and conservation </li>
+<li>Interested in creating equitable & inclusive hiring process; diversifying the workplace; and interviewing job candidates</li>
+<li>Networking + community building/engagement </li>
+<li>Attending panels & education sessions </li>
+<li>Recommended to them & interested in learning more!</li>
+</ol>
+      </div>
+      <!-- .end .column -->
+    </div>
+    <!-- .end .grid -->
+  </div>
+</section>
+
+<section class="fullscreen bg-primary " >
+
+    <div class="wrap">
+    <br>
+    <h3>What improvements could be made to support candidates in the next round of facilitated
+hiring by The Bridge Project?</h3></div>
+  <div class="grid vertical-align">
+      <div class="column">
+          <div class="text-quote">
+<h5>
+  Have the candidates and coaches connect much sooner. My coached reached out to me a
+  day before my interview, so we did not have time to connect/share. Also, sharing important
+  information a little bit more in advance. A lot of communication came the day of or the day
+  before, but it would be nice to have more time prepare.
+</h5><br>
+</div>
+
+
+</div>
+    <div class="column">
+      <div class="text-quote">
+    <h5>
+      Give a time frame of when candidates will hear back from employers once the hiring event
+    is over<br></h5></div>
+  <div class="text-quote">
+<h6>Maybe having more interview opportunities. I felt like I was not set up for success by
+interview for positions that wanted more experience. I would also love to see more variety
+in employer locations, but also realize it's hard to find willing employers! </h6><br></div>
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+</section>
+<section class="fullscreen bg-primary " >
+  <div class="wrap">
+    <br>
+    <h3>What improvements could be made to support employers in the next round of facilitated
+hiring by The Bridge Project?</h3> </div>
+    <div class="grid vertical-align">
+      <div class="column">
+          <div class="text-quote">
+<h5>
+  More advance communications around preparing job descriptions, interview questions, and
+  mitigating bias. Spread it out over more time to account for other work that was piling up
+  while we were in trainings.
+</h5><br>
+</div>
+  <div class="text-quote">
+<h4>
+  I would like to see interview times slots spaced out more, even 15-30 minutes.
+  Back-to-back interviews without a break is tough.<br></h4></div>
+
+</div>
+    <div class="column">
+
+  <div class="text-quote">
+<h5>The curation of the candidates was interesting. We reviewed some where it was not clear
+to us why they were referred to us based on the positions available. It would be good to
+know whether an applicant specifically wanted to be considered for the position we posted
+or whether their referral was based purely on the perspective of someone at the Bridge
+Project</h5><br></div>
+
+
+
+</div>
+
+
+
+
+
+</section>
+
+<section class="fullscreen">
+    <div class="grid vertical-align">
+  <div class="column bg-primary " >
+    <img src="assets/TBP Partners and Sponsors.webp" width="100%"></a>
+  </div>
+    <div class="column" >
+        <img src="assets/Job list updated_5_10.webp" width="100%"></a>
+          </div>
+          </div>
+</section>
+<section class="fullscreen">
+    <div class="grid vertical-align">
+  <div class="column bg-primary " >
+    <img src="assets/TBP Advisory Council.webp" width="100%"></a>
+  </div>
+    <div class="column" >
+        <img src="assets/TBP Advisory Council (1).webp" width="100%"></a>
+          </div>
+          </div>
+</section>
+  </article>
+
+
+
   <script>
-
-  function wordFrequency(txt, freq) {
-
-// a regular expression to define the symbols to seperate the words
-    var wordArray = txt.split(/[ .?!,*'"”“]/);
-    var newArray = [], filteredArray = [], wordObj;
-	// calculate the frequency of each unique terms from the text.
-    wordArray.forEach(function (word) {
-        wordObj = newArray.filter(function (w){
-            return w.text == word.toLowerCase();
-        });
-        if (wordObj.length) {
-            wordObj[0].weight += 1;
-        } else {
-            newArray.push({text: word, weight: 1});
-        }
-    });
-
-
-    	var words = [];
-
-	//disinclude the word larger than the lowerst frequency as well as not in the commonly used terms.
-    newArray.filter(function(word){
-        if (!words.includes(word.text) && word.weight > freq) {
-            filteredArray.push(word);
-        }
-    });
-
-    return filteredArray;
-}
-colorscheme = chroma.scale('OrRd').colors(10).reverse(); //colorscheme = chroma.scale('OrRd').colors(5);
-
-d3.csv('assets/cloud.csv').then(function(data) {
-    var texts = "";
-    for(var i=0;i< data.length; i++){
-
-        texts += data[i].Q3 ;
-    }
-
-    for (var j = 0; j < colorscheme.length; j++) {
-      $("#area").append("<i style='background: " + colorscheme[j] + " ; opacity:0.9'></i>")};
-
-
-
-  var frequencyList = wordFrequency(texts, 1);
-
-    $("#cloud").jQCloud(frequencyList, {
-       colors: colorscheme,
-       autoResize: true,
-       delay: 5,
-       shape: 'rectangular',
-       fontSize: {
-           from: 0.06,
-           to: 0.01
-       }
-    });
-
-    console.log(texts)
-});
-
-  Promise.all([
-    d3.csv('assets/Survey.csv', d3.autoType),
-    d3.csv('assets/cloud.csv', d3.autoType),
-    d3.csv('assets/wordcloud.csv', d3.autoType),
-  ]).then(function(datasets) {
-//     colors = chroma.scale('YlGnBu').colors(3); //colors = chroma.scale('RdPu').colors(5);
-//
-//     var matrix = d3.nest()
-//   .key(function(d) {return d.Q3;  })
-//   .rollup(function(ids) {
-//       return ids.length;
-//   })
-//   .entries(datasets[0]);
-//   var df=datasets[2]
-//
-//   colorscheme = chroma.scale('OrRd').colors(10).reverse(); //colorscheme = chroma.scale('OrRd').colors(5);
-//
-//
-//   for (var j = 0; j < colorscheme.length; j++) {
-//     $("#area").append("<i style='background: " + colorscheme[j] + " ; opacity:0.9'></i>")};
-//
-//
-//
-//     $("#cloud").jQCloud(df, {
-//        colors: colorscheme,
-//        autoResize: true,
-//        delay: 5,
-//        shape: 'rectangular',
-//        fontSize: {
-//            from: 0.06,
-//            to: 0.01
-//        }
-//     });
-//
-// console.log(df)
-
-
-
-
-  var color= chroma.scale('Set2').mode('lch').colors(9);
+  var color= chroma.scale('Set2').mode('lch').colors(7);
   var map = L.map("map", {
-  minZoom: 4,
+  minZoom: 3,
   maxZoom: 8,
   scrollWheelZoom: false
 
-}).setView([38, -98.], 4);
+}).setView([35, -115.], 4);
 
 
-L.tileLayer('https://api.mapbox.com/styles/v1/loweas/ck6rbqwaj20fi1inwqn4c4w99/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG93ZWFzIiwiYSI6ImNqczlhMzJqMjE1dDM0NG12dHBxam1lZjIifQ.Ox8goYypCr_cJCoDPgHTsQ', {
+  L.tileLayer('https://api.mapbox.com/styles/v1/loweas/ck6rbqwaj20fi1inwqn4c4w99/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG93ZWFzIiwiYSI6ImNqczlhMzJqMjE1dDM0NG12dHBxam1lZjIifQ.Ox8goYypCr_cJCoDPgHTsQ', {
   attribution: 'Made By <a href="https://github.com/loweas">loweas</a>',
-}).addTo(map);
-colors = chroma.scale('YlGnBu').colors(3); //colors = chroma.scale('RdPu').colors(5);
+  }).addTo(map);
 
-function setColor(density) {
+
+  var states = L.geoJson.ajax("assets/us-states.geojson", {
+  onEachFeature: function (feature, layer) {
+      layer.bindPopup(feature.properties.name+ "<br>Count  :  " + feature.properties.count );
+  },
+    style: style
+  }).addTo(map);
+
+
+  colors = chroma.scale('OrRd').colors(3); //colors = chroma.scale('RdPu').colors(5);
+
+  function setColor(density) {
     var id = 0;
     if (density == "Arizona" || density == "Oregon"
   || density == "Hawaii"|| density == "Illinois"|| density == "Maryland"|| density == "Minnesota"|| density == "Missouri"
-|| density == "Missouri"|| density == "Montana"|| density == "New Jersey"|| density == "New York"
-|| density == "North Carolina"|| density == "Pennsylvania"|| density == "Tennessee") { id = 2; }
-    else if (density =="California"|| density == "Colorado"|| density == "Georgia"|| density == "Virgina") { id = 1; }
+  || density == "Missouri"|| density == "Montana"|| density == "New Jersey"|| density == "New York"
+  || density == "North Carolina"|| density == "Pennsylvania"|| density == "Tennessee") { id = 2; }
+    else if(density =="California"|| density == "Colorado"|| density == "Georgia"|| density == "Virgina") { id = 1; }
     else  { id = 0; }
     return colors[id];
-}    // 7. Set style function that sets fill color.md property equal to cell tower density
+  }    // 7. Set style function that sets fill color.md property equal to cell tower density
     function style(feature) {
         return {
             fillColor: setColor(feature.properties.name),
@@ -326,37 +527,33 @@ function setColor(density) {
         };
     }
     // 8. Add county polygons
-// create counties variable, and assign null to it.
-var states = null;
-states = L.geoJson.ajax("assets/us-states.geojson", {
-    style: style
-}).addTo(map);
+  // create counties variable, and assign null to it.
 
 
-// 9. Create Leaflet Control Object for Legend
-var legend = L.control({position: 'topright'});
+
+  console.log(states)
 
 
-// 10. Function that runs when legend is added to map
-legend.onAdd = function () {
+  // 9. Create Leaflet Control Object for Legend
+  var legend = L.control({position: 'topleft'});
+
+
+
+  // 10. Function that runs when legend is added to map
+  legend.onAdd = function () {
   // Create Div Element and Populate it with HTML
           var div = L.DomUtil.create('div', 'legend');
           div.innerHTML += '<b>Repersentation by State</b><br />';
+        div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p>Top 5 Attendence</p>';
+          div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p>Attendence</p>';
 
-          div.innerHTML += '<i style="background: ' + colors[2] + '; opacity: 0.5"></i><p>Attended</p>';
-          div.innerHTML += '<i style="background: ' + colors[1] + '; opacity: 0.5"></i><p>Top 5</p>';
           div.innerHTML += '<i style="background: ' + colors[0] + '; opacity: 0.5"></i><p>No Attendence</p>';
-// Return the Legend div containing the HTML content
-return div;
-};
+  // Return the Legend div containing the HTML content
+  return div;
+  };
 
-// 11. Add a legend to map
-legend.addTo(map);
-
-
-
-
-
+  // 11. Add a legend to map
+  legend.addTo(map);
 
 
   var matchchart = c3.generate({
@@ -377,10 +574,11 @@ legend.addTo(map);
       }
     },
     color: {
-      pattern: [color[0], color[2], color[3], color[4], 'grey']
+      pattern: [color[0], color[2], color[3], color[4], color[5],color[6],'grey']
     },
     bindto: "#matchchart"
   });
+
   var genderchart = c3.generate({
     data: {
       columns: [
@@ -389,16 +587,21 @@ legend.addTo(map);
       ],
       type: 'pie',
     },
+    size: {
+    height: 240,
+    width: 480
+},
     axis: {
       x: {
         type: 'category'
       }
     },
     color: {
-      pattern: [color[0], color[2], color[3], color[4], 'grey']
+    pattern: [color[0], color[2], color[3], color[4], color[5],color[6],'grey']
     },
     bindto: "#genderchart"
   });
+
   var ethnicchart = c3.generate({
     data: {
       columns: [
@@ -411,32 +614,135 @@ legend.addTo(map);
       ],
       type: 'pie',
     },
+    size: {
+    height: 240,
+    width: 480
+},
     axis: {
       x: {
         type: 'category'
       }
     },
     color: {
-      pattern: [color[0], color[2], color[3], color[4], 'grey']
+  pattern: [color[0], color[2], color[3], color[4], color[5],color[6],'grey']
     },
+
     bindto: "#ethnicchart"
   });
+  function wordFrequency(txt, freq) {
+
+    var wordArray = txt.split(/[ .?!,*'"”“]/);
+    //var wordArray = txt.split(" ");
+    var newArray = [],
+      filteredArray = [],
+      wordObj;
+    wordArray.forEach(function(word) {
+      wordObj = newArray.filter(function(w) {
+        return w.text === word.toLowerCase();
+      });
+      if (wordObj.length) {
+        wordObj[0].weight += 1;
+      } else {
+        newArray.push({
+          text: word,
+          weight: 1
+        });
+      }
+    });
+
+    var words = [".",""];
+
+    newArray.filter(function(word) {
+      if (!words.includes(word.text) && word.weight > freq) {
+        filteredArray.push(word);
+      }
+    });
+
+    return filteredArray;
+
+  }
+
+
+    colorscheme = chroma.scale('Dark2').colors(10).reverse();
+    d3.csv('assets/wordcloud.csv').then(function(data) {
+      var texts = "";
+
+      for(var i=0;i< data.length; i++){
+
+        texts += " " + data[i].x ;
+      }
+
+      var frequencyList = null;
+      frequencyList = wordFrequency(texts, 0);
+      console.log(frequencyList)
+      $("#cloud").jQCloud(frequencyList, {
+        colors: colorscheme,
+        autoResize: true,
+        delay: 1,
+        shape: 'rectangular',
+        fontSize: {
+          from: 0.1,
+          to: 0.02
+        }
+      });
+
+
+
 
     });
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    ws = new WebSlides();
+        ws.el.addEventListener('ws:slide-change', function() {
+                crtDiv = $(".current div");
+
+          ethnicchart.resize();
+          genderchart.resize();
+          matchchart.resize();
+
+          if (crtDiv.attr("id") === "mycloud") {
+                d3.csv('assets/wordcloud.csv').then(function(data) {
+                  var texts = "";
+
+                  for(var i=0;i< data.length; i++){
+
+                    texts += " " + data[i].x ;
+                  }
+
+                  var frequencyList = null;
+                  frequencyList = wordFrequency(texts, 0);
+                  console.log(frequencyList)
+                  $("#cloud").jQCloud(frequencyList, {
+                    colors: colorscheme,
+                    autoResize: true,
+                    delay: 1,
+                    shape: 'rectangular',
+                    fontSize: {
+                      from: 0.1,
+                      to: 0.02
+                    }
+                  });
+
+
+
+
+                });
+
+
+              }
+
+        })
   </script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141661518-4"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141661518-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-141661518-4');
-  </script>
+  gtag('config', 'UA-141661518-1');
+</script>
 </body>
 
 </html>
