@@ -907,6 +907,10 @@ Project.</h5><br></div>
       ],
       type: 'pie',
     },
+    size: {
+    height: 400,
+    width: 480
+},
 
     axis: {
       x: {
@@ -931,6 +935,10 @@ Project.</h5><br></div>
       ],
       type: 'pie',
     },
+    size: {
+    height: 400,
+    width: 480
+},
 
     axis: {
       x: {
@@ -1015,9 +1023,9 @@ Project.</h5><br></div>
         ws.el.addEventListener('ws:slide-change', function() {
                 crtDiv = $(".current div");
 
-          ethnicchart.resize();
-          genderchart.resize();
-          matchchart.resize();
+          // ethnicchart.resize();
+          // genderchart.resize();
+          // matchchart.resize();
 
           if (crtDiv.attr("id") === "mycloud") {
                 d3.csv('assets/wordcloud.csv').then(function(data) {
